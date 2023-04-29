@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="../Login/login_style.css" />
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/New_Era_University.svg/1200px-New_Era_University.svg.png">
+</head>
+
+<body>
+    <section>
+        <div id="login-container">
+            <!-- Top Contents -->
+            <div id="top-contents">
+                <img draggable="false" src="../Materials/NewEra_Logo.png" alt="NewEra Logo" width="150" />
+                <h1>
+                    <span class="group1">New</span> <span> </span> <span class="group1">Era</span>
+                    <span class="group1">University</span>
+                </h1>
+            </div>
+
+            <!-- Bottom Contents -->
+            <div id="bottom-contents">
+                <h3>Login</h3>
+                <!-- <div id="input-container">
+                    
+                    
+                    <label class="username"><input type="text" placeholder="username" /></label>
+                    <br />
+                    <label class="password"><input type="password" placeholder="password" /></label>
+                    <br />
+                    <label class="rememberMe"><input type="checkbox" />Remember Me</label>
+                    <button type="submit" class="submit-login">Submit</button>
+                </div> -->
+                <form id="input-container" class = "" action="/dashboard" method="post">
+                    <label class = "username"><input name="username" type="text"  id="username" placeholder="Username"></label>
+                    <label class="password"><input name="password" type= "password" id="password" placeholder="Password"></label>                
+                    <!-- <label class="rememberMe"><input type="checkbox" name="rememberMe"/>Remember Me</label> -->
+                    <br>
+                    <button type="submit" class="submit-login" name="loginButton">Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <!-- <script src="../Home/index.js" type="module"></script> -->
+    <!-- <script src="login_script.js" type="module"></script> -->
+    <script>
+        const submitButton = document.querySelector(".submit-login");
+        submitButton.addEventListener('click', getFeedback);
+
+        const baseUrl = 'http://localhost:5000/';
+        async function getFeedback(e)
+        {
+
+        }
+
+    </script>
+    <script src="../../index.js" type="module"></script>
+
+</body>
+
+</html>

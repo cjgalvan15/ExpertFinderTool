@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../Dashboard2/dashboard_style.css">
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/New_Era_University.svg/1200px-New_Era_University.svg.png">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div id="header-container">
+            <h2>Expert Connect: The Expert Finder Tool</h2>
+            <div>
+                <button class="myProfile">My Profile</button>
+                <button class="logout">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <form action="">
+            <input id="search-bar" type="text" placeholder="Search Expert Connect">
+        </form>
+        <button class="search-button" id="search-button" onclick="inputSearchButton()">Search</button>
+    </nav>
+
+    <!-- Sidebar Section -->
+    <aside>
+        <div>
+            <img src="../Materials/NewEra_Logo.png" alt="NewEra Logo" width="150">
+            <h2>NEW ERA UNIVERSITY</h2>
+            <hr>
+            <p>Dashboard</p>
+            <hr>
+            <p id="sort-category">Sort by category:</p>
+
+            <!-- Course -->
+            <button id="course-button" onclick="toggleCourseButton()" style="font-size: 1rem;"><b>Courses</b></button>
+            <div id="course-container">
+                <label class="courseOption"><input type="checkbox" value="BS Computer Science">BS ComSci</label>
+                <label class="courseOption"><input type="checkbox" value="BS Information Technology">BS IT</label>
+                <label class="courseOption"><input type="checkbox" value="BS Accountancy">BS Accountancy</label>
+                <label class="courseOption"><input type="checkbox" value="BS Medical Technology">BS Med Tech</label>
+                <label class="courseOption"><input type="checkbox" value="BS Psychology">BS Pschology</label>
+                <label class="courseOption"><input type="checkbox" value="BS Biology">BS Biology</label>
+                <label class="courseOption"><input type="checkbox" value="BS Civil Engineer">BS Civil Engineer</label>
+            </div>
+
+            <!-- Level of Education -->
+            <button id="levelEduc-button" onclick="toggleLevelEducButton()" style="font-size: 1rem;"><b>Level of
+                    Education</b></button>
+            <div id="levelEduc-container">
+                <label class="levelEducOption"><input type="checkbox" value="Bachelor's Degree">Bachelor's Degree</label>
+                <label class="levelEducOption"><input type="checkbox" value="Master's Degree">Master's Degree</label>
+                <label class="levelEducOption"><input type="checkbox" value="Doctoral Degree">Doctoral Degree</label>
+            </div>
+
+            <!-- Profession -->
+            <button id="profession-button" onclick="toggleProfessionButton()"
+                style="font-size: 1rem;"><b>Profession</b></button>
+            <div id="profession-container">
+                <label class="professionOption"><input type="checkbox" value="Software Engineer">Software Engineer</label>
+                <label class="professionOption"><input type="checkbox" value="IT Specialist">IT Specialist</label>
+                <label class="professionOption"><input type="checkbox" value="SOC Analyst">SOC Analyst</label>
+                <label class="professionOption"><input type="checkbox" value="Nurse">Nurse</label>
+                <label class="professionOption"><input type="checkbox" value="Medical Officer">Medical Officer</label>
+                <label class="professionOption"><input type="checkbox" value="Medical Specialist">Medical Specialist</label>
+            </div>
+
+            <!-- School -->
+            <button id="school-button" onclick="toggleSchoolButton()" style="font-size: 1rem;"><b>School</b></button>
+            <div id="school-container">
+                <label class="schoolOption"><input type="checkbox" value="New Era University">New Era University</label>
+                <label class="schoolOption"><input type="checkbox" value="Lyceum of the Philippines">Lyceum of the Philippines</label>
+                <label class="schoolOption"><input type="checkbox" value="Adamson University">Adamson University</label>
+                <label class="schoolOption"><input type="checkbox" value="Ateneo de Manila">Ateneo de Manila</label>
+                <label class="schoolOption"><input type="checkbox" value="Philippine Normal University">Philippine Normal University</label>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Main Content Section -->
+    <section>
+        <div id="content-container" class="hidden">
+            <button class="remove-button" id="remove-button" onclick="removeItemsButton()">Remove items</button>
+            <p id="valueList"></p>
+            <br>
+            <p id="output"></p>
+            <!-- <br><br><br> -->
+            <!-- <br><br><br><br><br><br><br> -->
+        </div>
+    </section>
+
+    <!-- Script -->
+    <!-- <script src="dashboard_script.js"></script> -->
+    <script src="../../index.js"></script>
+</body>
+
+</html>

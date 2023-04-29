@@ -1,0 +1,516 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 0.0001px;
+    height: 100px;
+    background-color: #9b75b2;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #9e6ec0;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555555;
+}
+
+/* Header Styles */
+header {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    height: 4.5rem;
+    background-image: linear-gradient(135deg, #1904E5 10%, #FAB2FF 100%);
+    cursor: default;
+}
+
+header #header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 270px;
+    padding: 10px;
+}
+
+header #header-container button {
+    padding: 10px;
+    border: none;
+    background-color: white;
+    color: black;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+header #header-container .myProfile {
+    box-shadow: inset 0px 1px 0px 0px #97c4fe;
+    background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+    background-color: #3d94f6;
+    border-radius: 6px;
+    border: 1px solid #337fed;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #1570cd;
+    height: 50px;
+    transition: all 0.25s ease-in-out;
+}
+
+header #header-container .myProfile:hover {
+    background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+    background-color: #1e62d0;
+    transform: scale(1.05);
+}
+
+header #header-container .myProfile:active {
+    position: relative;
+    top: 1px;
+}
+
+header #header-container .logout {
+    box-shadow: inset 0px 1px 0px 0px #f5978e;
+    background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color: #f24537;
+    border-radius: 6px;
+    border: 1px solid #d02718;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #810e05;
+    width: 40%;
+    height: 50px;
+    transition: all 0.25s ease-in-out;
+}
+
+header #header-container .logout:hover {
+    background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+    background-color: #c62d1f;
+    transform: scale(1.05);
+}
+
+header #header-container .logout:active {
+    position: relative;
+    top: 1px;
+}
+
+/* Navigation Styles */
+nav {
+    width: 550px;
+    padding-top: 5px;
+    float: right;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav input[type="text"] {
+    width:75%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 150px;
+    box-shadow: 0 0 5px gray;
+    background-color: #f1f1f1;
+    position: relative;
+    z-index: 1;
+    transition: all 0.25s ease-in-out;
+}
+
+nav input[type="text"]:hover {
+    background-color: #e3e3e3;
+    transform: scale(1.05);
+}
+
+nav .search-button {
+    margin-right: 20px;
+    margin-top: 15px;
+    width: 80px;
+    height: 30px;
+    border-radius: 25px;
+    cursor: pointer;    
+    background-color: #f1f1f1;
+    color:rgb(102, 102, 102);
+    font-size: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 5px gray;
+    border: none;
+    position: relative;
+    z-index: 1;
+    transition: all 0.25s ease-in-out;
+}
+
+nav .search-button:hover {
+    background-color: #e3e3e3;
+    transform: scale(1.05);
+}
+
+
+
+/* Aside Styles */
+aside {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #1E4FFF;
+    background-image: linear-gradient(135deg, #1904E5 10%, #FAB2FF 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+aside a {
+    color: #fff;
+    text-decoration: none;
+}
+
+aside img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    cursor: default;
+}
+
+aside h2 {
+    cursor: default;
+}
+
+aside hr {
+    border: none;
+    height: 1px;
+    background-color: #fff;
+    margin: 10px;
+    width: 100%;
+}
+
+aside p {
+    cursor: default;
+    font-size: 1rem;
+    line-height: 25px;
+}
+
+aside #sort-category {
+    cursor: default;
+    font-size: 1rem;
+    line-height: 25px;
+    color: #d1d1d1;
+}
+
+
+aside #course-button {
+    display: block;
+    width: 170.859px;
+    height: 35px;
+    text-align: left;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+
+aside #course-button:hover {
+    background-color: #fff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #1E4FFF;
+    transform: translateY(-7px);
+
+}
+
+aside #course-button:active {
+    transform: translateY(-1px);
+}
+
+aside #course-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+}
+
+aside #course-container.show {
+    max-height: 400px;
+    transition: max-height 0.5s ease;
+}
+
+aside .courseOption {
+    text-align: left;
+    display: block;
+    padding-left: 35px;
+    font-size: 0.8rem;
+    width: 180px;
+    line-height: 25px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+aside .courseOption input[type="checkbox"] {
+    float: right;
+    margin-right: 10px;
+    margin-top: 6.7px;
+}
+
+
+aside #levelEduc-button {
+    display: block;
+    width: 170.859px;
+    height: 35px;
+    text-align: left;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+aside #levelEduc-button:hover {
+    background-color: #fff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #1E4FFF;
+    transform: translateY(-7px);
+}
+
+aside #levelEduc-button:active {
+    transform: translateY(-1px);
+}
+
+aside #levelEduc-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+}
+
+aside #levelEduc-container.show {
+    max-height: 200px;
+    transition: max-height 0.5s ease;
+}
+
+aside .levelEducOption {
+    text-align: left;
+    display: block;
+    padding-left: 35px;
+    font-size: 0.8rem;
+    width: 180px;
+    line-height: 25px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+aside .levelEducOption input[type="checkbox"] {
+    float: right;
+    margin-right: 10px;
+    margin-top: 6.7px;
+}
+
+aside #profession-button {
+    display: block;
+    width: 170.859px;
+    height: 35px;
+    text-align: left;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+aside #profession-button:hover {
+    background-color: #fff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #1E4FFF;
+    transform: translateY(-7px);
+}
+
+aside #profession-button:active {
+    transform: translateY(-1px);
+}
+
+aside #profession-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+}
+
+aside #profession-container.show {
+    max-height: 200px;
+    transition: max-height 0.5s ease;
+}
+
+aside .professionOption {
+    text-align: left;
+    display: block;
+    padding-left: 35px;
+    font-size: 0.8rem;
+    width: 180px;
+    line-height: 25px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+aside .professionOption input[type="checkbox"] {
+    float: right;
+    margin-right: 10px;
+    margin-top: 6.7px;
+}
+
+aside #school-button {
+    display: block;
+    width: 170.859px;
+    height: 35px;
+    text-align: left;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+
+aside #school-button:hover {
+    background-color: #fff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #1E4FFF;
+    transform: translateY(-7px);
+}
+
+aside #school-button:active {
+    transform: translateY(-1px);
+}
+
+aside #school-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+}
+
+aside #school-container.show {
+    max-height: 200px;
+    transition: max-height 0.5s ease;
+}
+
+aside .schoolOption {
+    text-align: left;
+    display: block;
+    padding-left: 35px;
+    font-size: 0.8rem;
+    width: 180px;
+    line-height: 25px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+aside .schoolOption input[type="checkbox"] {
+    float: right;
+    margin-right: 10px;
+    margin-top: 6.7px;
+}
+
+/* Section Styles */
+section {
+    margin-left: 250px;
+    padding: 20px;
+    height: 650px;
+    background-image: url('../Materials/NewEra.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 72px;
+    left: 250px;
+    width: 83.5%;
+    height: 91%;
+    background-color: rgba(0, 0, 0, 0.085);
+}
+
+
+/* Content Container */
+section #content-container {
+    background-color: rgba(241, 241, 241, 0.85);
+
+    margin-top: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+
+    box-shadow: 0 0 5px gray;   
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+
+    max-height: 0;
+    overflow: auto;
+    transition: max-height .5s ease;
+}
+
+section #content-container.show {
+    max-height: 500px;
+    transition: max-height 1s ease;
+}
+
+section .remove-button {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
+
+section .remove-button:hover {
+    background-color: #dedede;
+}
+
+section p {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+

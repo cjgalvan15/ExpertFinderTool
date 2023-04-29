@@ -1,0 +1,150 @@
+body {
+  max-width: 100%;
+  margin: auto;
+  height: 100%;
+  background-color: #1E4FFF;
+  background-image: linear-gradient(135deg, #1904E5 10%, #FAB2FF 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+
+/* Welcome Box */
+.welcome-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 650px;
+  height: 180px;
+  margin: auto;
+  margin-top: 25px;
+  background-image: url("../Materials/NewEra.jpg");
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px #33359e85,
+    -20px -20px 50px #b256b485;
+}
+
+.welcome-box img {
+  height: 130px;
+  margin-right: 20px;
+}
+
+.welcome-box h1 {
+  margin: 0;
+  font-size: 40px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.welcome-box h2 {
+  margin: 0;
+  font-size: 30px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Buttons */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.buttons button {
+  width: 200px;
+  height: 300px;
+  background-color: #fff;
+  border: 7px solid transparent;
+  border-radius: 10px;
+  padding: 12px 12px;
+  box-shadow: 10px 10px 0px #33359e85, -20px -20px 50px #b256b485;
+  margin-right: 30px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+}
+
+/* Student Button */
+.student-button {
+  border-color: #1B832B;
+}
+
+.student-button:hover {
+  background-color: #7AE999;
+  border-color: #1B832B;
+}
+
+/* Professor Button */
+.prof-button {
+  border-color: #BE1B1B;
+}
+
+.prof-button:hover {
+  background-color: #EA6268;
+  border-color: #BE1B1B;
+}
+
+/* Adjustments */
+.buttons h1 {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+.buttons img {
+  width: 160px;
+  height: 160px;
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* Adjustment for Screen Resolutions */
+@media only screen and (max-width: 767px) {
+  body {
+    height: auto;
+  }
+
+  .welcome-box {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    border-radius: 0;
+  }
+
+  .welcome-box img {
+    height: 80px;
+    margin-right: 10px;
+  }
+
+  .welcome-box h1 {
+    font-size: 24px;
+  }
+
+  .welcome-box h2 {
+    font-size: 18px;
+  }
+
+  .buttons-container {
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .buttons button {
+    width: 150px;
+    height: 200px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 6px 6px;
+  }
+
+  .buttons img {
+    width: 80px;
+    height: 80px;
+  }
+}

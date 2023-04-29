@@ -1,0 +1,265 @@
+/* Body Styles */
+body {
+    background-image: linear-gradient(135deg, #fab2ff 10%, #1904e5 100%);
+    background-attachment: fixed;
+    max-width: 100%;
+  margin: auto;
+  height: 100%;
+}
+
+/* Login Container */
+section #login-container {
+    display: flex;
+    width: 60%;
+    margin: 10% auto;
+    border-radius: 10px;
+    background: #fcfbff;
+    box-shadow: 20px 20px 0px #33359e85, -20px -20px 50px #b256b485;
+}
+
+/* Top Contents */
+section #top-contents {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: #ffffff;
+    background-image: url("../Materials/NewEra.jpg");
+    background-size: cover;
+}
+
+section #top-contents img {
+    width: 150px;
+    margin-right: 20px;
+}
+
+section #top-contents h1 {
+    cursor: default;
+    font-size: 3.5vmax;
+    margin-right: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+section #top-contents h1 .group1 {
+    display: inline-block;
+    transition: transform 0.2s ease-out;
+}
+
+section #top-contents h1 .group1:hover {
+    transform: translateY(-5px);
+}
+
+section #top-contents h1 .group2 {
+    display: block;
+}
+
+/* Bottom Contents */
+section #bottom-contents {
+    flex: 1;
+    padding: 20px;
+}
+
+section #bottom-contents h3 {
+    cursor: default;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+section #bottom-contents #input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+section #bottom-contents label {
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+section #bottom-contents input[type="text"],
+section #bottom-contents input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(164, 146, 216, 0.3) 0px 30px 50px -12px inset, rgba(235, 235, 235, 0.6) 0px 18px 26px -18px inset;
+    font-size: 1rem;
+    color: #333;
+}
+
+section#bottom-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.rememberMe input[type="checkbox"] {
+    position: relative;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.5rem;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.submit-login {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 0;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.submit-login:hover {
+    background-color: hsl(261, 80%, 48%);
+    color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 5.5px;
+}
+
+.submit-login:active {
+    background-color: hsl(261, 80%, 48%);
+    color: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 3px;
+    transform: translateY(3px);
+    transition: all 0.1s ease-out;
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* Adjustment for Screen Resolutions */
+/* Adjustment for Screen Resolutions */
+@media only screen and (max-width: 1000px) {
+    /* Body Styles */
+    body {
+      background-image: linear-gradient(135deg, #fab2ff 10%, #1904e5 100%);
+      background-attachment: fixed;
+    }
+  
+    /* Login Container */
+    section #login-container {
+      display: flex;
+      width: 100%;
+      margin: 10% auto;
+      border-radius: 10px;
+      background: #fcfbff;
+      box-shadow: 20px 20px 0px #33359e85, -20px -20px 50px #b256b485;
+    }
+  
+    /* Top Contents */
+    section #top-contents {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 0px;
+      color: #ffffff;
+      background-image: url("../Materials/NewEra.jpg");
+      background-size: cover;
+    }
+  
+    section #top-contents img {
+      width: 100%;
+      max-width: 150px;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    section #top-contents h1 {
+      cursor: default;
+      font-size: 3.5vmax;
+      margin-right: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+  
+    section #top-contents h1 .group1 {
+      display: inline-block;
+      transition: transform 0.2s ease-out;
+    }
+  
+    section #top-contents h1 .group1:hover {
+      transform: translateY(-5px);
+    }
+  
+    section #top-contents h1 .group2 {
+      display: block;
+    }
+  
+    /* Bottom Contents */
+    section #bottom-contents {
+      flex: 1;
+      padding: 20px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 10px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 10px;
+    }
+  
+    section #bottom-contents h3 {
+      cursor: default;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+  
+    section #bottom-contents #input-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    section #bottom-contents label {
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+  
+    section #bottom-contents input[type="text"],
+    section #bottom-contents input[type="password"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgb(255, 255, 255);
+      box-shadow: rgba(164, 146, 216, 0.3) 0px 30px 50px -12px inset, rgba(235, 235, 235, 0.6) 0px 18px 26px -18px inset;
+      font-size: 1rem;
+      color: #333;
+    }
+  
+    .submit-login {
+      padding: 0.8rem 1.5rem;
+      font-size: 13px;
+    }
+  }
+  

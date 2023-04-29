@@ -1,0 +1,441 @@
+/* Main Styles */
+body {
+  max-width: 100%;
+  height: 100%;
+  margin: auto;
+  background-image: url("../Materials/NewEra.jpg");
+  background-size: cover;
+  background-position: 45%;
+  font-family: Arial;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+
+h1 {
+  font-size: 1.4rem;
+  color: #1DA1F2;
+}
+
+/* Add Profile Image */
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  margin-top: 20px;
+  margin-left: 40%;
+}
+
+.circle-text {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#circle.selected #circle-text {
+  display: none;
+}
+
+#circle.selected {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#file-input {
+  display: none;
+}
+
+.remove {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#circle.selected #remove {
+  opacity: 1;
+}
+
+#circle:hover #remove {
+  opacity: 1;
+}
+
+.fa-plus {
+  font-size: 2.5rem;
+}
+
+/* Add Form Button */
+#add-form {
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #606aa3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666;
+}
+
+#add-form:hover {
+  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  background-color: #0688fa;
+}
+
+#add-form:active {
+  position: relative;
+  top: 1px;
+}
+
+/* Input's profile */
+.brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1DA1F2;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: default;
+}
+
+.inputs-profile {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.inputs-profile input[type="text"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.inputs-profile input[type="text"]:hover {
+  border-color: #2f2f2f;
+  transform: scale(1.01);
+}
+
+.inputs-profile input[type=text]:focus {
+  background-color: rgb(235, 235, 235);
+}
+
+
+.inputs-profile label {
+  font-weight: bold;
+}
+
+/* Education Information */
+.educInfo-cont {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  border-radius: 20px;
+  padding-top: 10px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form input[type="text"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.form input[type="text"]:hover {
+  border-color: #2f2f2f;
+  transform: scale(1.01);
+}
+
+
+.form input[type=text]:focus {
+  background-color: rgb(235, 235, 235);
+}
+
+
+.form label {
+  font-weight: bold;
+}
+
+.form-radio {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* Job */
+.experience-form {
+  margin-bottom: 20px;
+}
+
+.experience-form input[type="text"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.experience-form input[type="text"]:hover {
+  border-color: #2f2f2f;
+  transform: scale(1.01);
+}
+
+
+.experience-form input[type=text]:focus {
+  background-color: rgb(235, 235, 235);
+}
+
+.experience-form label {
+  font-weight: bold;
+}
+
+#experience-btn {
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #606aa3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666;
+}
+
+#experience-btn:hover {
+  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  background-color: #0688fa;
+}
+
+#experience-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+
+/* Contact Information */
+.contactInfo-form {
+  margin-bottom: 20px;
+}
+
+.contactInfo-form input[type="text"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.contactInfo-form input[type="text"]:hover {
+  border-color: #2f2f2f;
+  transform: scale(1.01);
+}
+
+
+.contactInfo-form input[type=text]:focus {
+  background-color: rgb(235, 235, 235);
+}
+
+
+.contactInfo-form label {
+  font-weight: bold;
+}
+
+#contactInfo-btn {
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #606aa3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666;
+}
+
+#contactInfo-btn:hover {
+  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  background-color: #0688fa;
+}
+
+#contactInfo-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+/* Edit Button */
+.edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+  border-radius: 30px;
+  border: 1px solid #8F9092;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+}
+
+.edit-btn:hover {
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9,
+    0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE,
+    inset 0 0 3px 3px #CECFD1;
+}
+
+.edit-btn:active {
+  box-shadow: 0 4px 3px 1px #FCFCFC,
+    0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1,
+    0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999,
+    inset 0 0 30px #aaa;
+}
+
+/* Edit Button Container */
+.edit-btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: right;
+}
+
+
+/* Save Profile Button */
+#save-profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+  border-radius: 30px;
+  border: 1px solid #8F9092;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+}
+
+#save-profile-btn:hover {
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9,
+    0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE,
+    inset 0 0 3px 3px #CECFD1;
+}
+
+#save-profile-btn:active {
+  box-shadow: 0 4px 3px 1px #FCFCFC,
+    0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1,
+    0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999,
+    inset 0 0 30px #aaa;
+}
+
+/* Cancel Profile Button */
+#cancel-profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+  border-radius: 30px;
+  border: 1px solid #8F9092;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #606060;
+  text-shadow: 0 1px #fff;
+}
+
+#cancel-profile-btn:hover {
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9,
+    0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE,
+    inset 0 0 3px 3px #CECFD1;
+}
+
+#cancel-profile-btn:active {
+  box-shadow: 0 4px 3px 1px #FCFCFC,
+    0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1,
+    0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999,
+    inset 0 0 30px #aaa;
+}
+
+.submit-container-btn {
+  margin-top: 20px;
+  margin-left: 27%;
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+}
