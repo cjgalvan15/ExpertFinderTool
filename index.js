@@ -2,27 +2,22 @@
 /*global document*/
 
 import express from 'express';
-const express1 = express;
-
 import bodyParser from 'body-parser';
 import path from 'path';
-
-const bodyParser1 = bodyParser;
-
 import mongoose from 'mongoose';
-const mongoose1 = mongoose;
-
 const __dirname = path.resolve();
-const app = express1();
+const app = express();
 
-app.use(bodyParser1.urlencoded({extended:true}));
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({extended:true}));
 
 // allow to access static files
 app.use(express.static("public"));
 
 // <------Testing------->
 
-mongoose1.connect('mongodb://127.0.0.1:27017/CICS', {UseNewUrlParser: true});
+mongoose.connect('mongodb://127.0.0.1:27017/CICS', {UseNewUrlParser: true});
 
 const educObjSchema = new mongoose.Schema({
     degree: String, 
@@ -892,25 +887,28 @@ app.get("/", function(req, res)
 
 
 
-app.post("/dashboard", async function (req, res) {
+app.post("/login", async function (req, res) {
+  var loginConfirm = false;
+  
   const usrname = req.body.username;
   const ps = req.body.password;
   const validation = await verifyLogin(usrname, ps);
+  console.log("login validation:");
   console.log(validation);
-  if (validation) {
-    res.sendFile(path.join(__dirname, "public/Dashboard2/expertDashboard.html"));
-  } else {
-    res.sendFile(path.join(__dirname, "public/Login/login.html"));
-  }
-});
 
+  var tryVariable = "try try try :3";
+
+  if (validation) {
+    res.render("dashboard", {loginConfirmation: loginConfirm});
+  } else { 
+    // if login doesn't match
+    res.render("login", {loginConfirmation: loginConfirm});
+  }
+  
+
+});
 
 app.listen(5000, function()
 {
 	console.log("Server is running on port 5000.");
 });
-
-import * as print from './public/Login/login_script.js';
-
-print();
-
