@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Authentication</title>
+</head>
+<body>
+    <form id="authForm" action="/authenticate" method="post">
+        <label for="notRobot">User Authentication</label>
+        <input type="checkbox" id="notRobot" name="notRobot">
+      </form>
+      
+      <script>
+        const notRobotInput = document.getElementById('notRobot');
+        const authForm = document.getElementById('authForm');
+        
+        notRobotInput.addEventListener('change', async () => {
+          if (notRobotInput.checked) {
+            const formData = new FormData(authForm);
+            const response = await fetch('/authenticate', {
+              method: 'POST',
+              body: formData
+            });
+            // Handle the response here
+          }
+        });
+      </script>
+      
+</body>
+</html>

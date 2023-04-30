@@ -462,13 +462,6 @@ const handleSearches = async function(arr)
 
 }
 
-const outputHandle = function(){
-  // console.log(handleSearches(arr));
-  console.log("Hello World");
-}
-
-export default outputHandle;
-
 // Find based on the Name-value
 async function findBasedName(val, period, id) // "Robert Ampatuan"
 {
@@ -871,24 +864,32 @@ async function verifyLogin(username, password) {
 }
 
 
-
+var loginConfirm = true;
+var expertResults = [];
 
 // Get & Post Requests
 app.get("/", function(req, res)
 {
-  console.log("Hello homepage :3");
   // import path from 'path';
   const filePath = path.join(__dirname, '/public/Home','home.html');
 	res.sendFile(filePath);
-  // res.sendFile(__dirname+ "/public/Home/home.html");
-  // res.send("It works without the file"); 
-  // console.log("It works in console"); [/]
+  // res.render("dashboard");
 });
 
+app.get("/dashboard", async function (req, res) {
+  res.render("dashboard");
+});
 
+app.post("/dashboard", async function (req, res){
+ 
+});
+
+app.get("/login", async function(req, res){
+  res.render("login", {loginConfirmation: loginConfirm});
+  console.log("get-req /login");
+});
 
 app.post("/login", async function (req, res) {
-  var loginConfirm = false;
   
   const usrname = req.body.username;
   const ps = req.body.password;
@@ -896,16 +897,13 @@ app.post("/login", async function (req, res) {
   console.log("login validation:");
   console.log(validation);
 
-  var tryVariable = "try try try :3";
-
   if (validation) {
-    res.render("dashboard", {loginConfirmation: loginConfirm});
+    res.render("dashboard");
   } else { 
     // if login doesn't match
+    loginConfirm = false;
     res.render("login", {loginConfirmation: loginConfirm});
   }
-  
-
 });
 
 app.listen(5000, function()

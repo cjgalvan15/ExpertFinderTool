@@ -18,31 +18,61 @@
   </div>
   <div class="buttons-container">
     
+    <!-- 
+      <form id="authForm" action="/authenticate" method="post">
+      </form>
+     -->
     <div class="buttons">
-      <a href="../Dashboard2/studentDashboard.html">
-        <button class="student-button" type="button">
-          <img draggable="false" src="../Materials/student-icon.png" alt="Student Icon">
-          <h1 class="student">Student</h1>
+      <form action="/dashboard" method="get">
+        <button class="student-button" type="submit" id="studButton">
+            <img draggable="false" src="../Materials/student-icon.png" alt="Student Icon">
+            <h1 class="student">Student</h1>
         </button>
-      </a> 
+
+      </form>
     </div>
     
     <div class="buttons">
-      <a href="../Login/login.html">
-        <button class="prof-button" type="button">
+      <form action="/login" method="get">
+        <button class="prof-button" type="submit" id="profButton">
           <img draggable="false" src="../Materials/professor-icon.png" alt="Professor Icon">
           <h1 class="professor">Professor</h1>
         </button>
-      </a> 
+      </form>
     </div>
+  </div>
 
     
-  </div>
-  
-  
-  <script src="/public/Home/home.js"></script>
-  <script src="/index.js"></script>
-</body>
+  <!-- <script>
+    const studentButton = document.getElementById('studButton');
+    const dashForm = document.getElementById('dashForm');
+
+    const profButton = document.getElementById('profButton');
+    const logForm = document.getElementById('logForm');
+    
+    studentButton.addEventListener('click', async () => {
+      const formData = new FormData(dashForm);
+      const response = await fetch('/dashboard', {
+        method: 'POST',
+        body: formData
+      }).catch((error)=>{
+        console.log(error);
+      });
+    });
+
+    profButton.addEventListener('click', async () => {
+      const formData = new FormData(logForm);
+      const response = await fetch('/log', {
+        method: 'POST',
+        body: formData
+      });
+    });
+
+  </script> -->
+    
+    
+
+  </body>
 
 
 </html>
