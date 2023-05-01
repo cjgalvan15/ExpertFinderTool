@@ -23,7 +23,7 @@
         padding: 0;   
           width: 800px
         }
-      </style>
+    </style>
 </head>
 
 <body>
@@ -110,17 +110,21 @@
             <form id = "output-form" class="" action="/dashboard" method="post">
                 <textarea class="readonly-input" name="valueList" id="valueList" rows="4" cols="50" readonly></textarea>
                 <button class="submit-output" name="submit-button" type="submit">Submit</button>
+                
             </form>         
         </div>
 
         <div id="output-container">
-           
+            <% if (outputDisplay == true) { %>
+                <h2>It is <%= outputDisplay %></h2>
+            <% } %>
         </div>
 
     </section>
 
     <!-- Script -->
     <script>
+    
         function toggleCourseButton() {
         var courseContainer = document.getElementById("course-container");
         courseContainer.classList.toggle("show");
@@ -156,7 +160,7 @@
 
         function showBoxContainer() {
             if ([...checkboxes].some(checkbox => checkbox.checked)) {
-                contentContainer.classList.add("show");
+                contentContainer.classList.add("show"); 
                 document.getElementById("remove-button").style.display = "block"; //Show remove button 
                 
                 if (this.checked == true) {
@@ -174,15 +178,15 @@
                 contentContainer.classList.remove("show");
                 listArray.length = 0; //Empty array when all boxes are unchecked
                 document.getElementById("remove-button").style.display = "none"; //Hide remove button 
-                outputList.innerHTML = ''; // Clear the search result
             }
         }
 
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener("click", showBoxContainer)
         });
+    
     </script>
-    <script src="../index.js"></script>
+    <script src="../index.js" type="module"></script>
 </body>
 
 </html>

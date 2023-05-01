@@ -866,7 +866,7 @@ async function verifyLogin(username, password) {
 //--------------------------------------------------------------
 var loginConfirm = true;
 var expertResults = [];
-var outputConfirm = false;
+var outputConfirm = true;
 
 // Get & Post Requests
 app.get("/", function(req, res)
@@ -891,7 +891,7 @@ app.post("/login", async function (req, res) {
   console.log(validation);
 
   if (validation) {
-    res.render("dashboard");
+    res.render("dashboard", {outputDisplay: outputConfirm});
   } else { 
     // if login doesn't match
     loginConfirm = false;
@@ -900,11 +900,13 @@ app.post("/login", async function (req, res) {
 });
 
 app.get("/dashboard", async function (req, res) {
-  res.render("dashboard");
+  outputConfirm = true;
+  console.log("Connected to Dashboard");
+  res.render("dashboard", {outputDisplay: " "});
 });
 
 app.post("/dashboard", async function (req, res){
- res.render("dasboard", {outputDisplay: outputConfirm})
+ res.render("dashboard", {outputDisplay: outputConfirm})
 });
 
 app.listen(5000, function()
