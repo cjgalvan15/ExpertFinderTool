@@ -863,9 +863,10 @@ async function verifyLogin(username, password) {
   }
 }
 
-
+//--------------------------------------------------------------
 var loginConfirm = true;
 var expertResults = [];
+var outputConfirm = false;
 
 // Get & Post Requests
 app.get("/", function(req, res)
@@ -874,14 +875,6 @@ app.get("/", function(req, res)
   const filePath = path.join(__dirname, '/public/Home','home.html');
 	res.sendFile(filePath);
   // res.render("dashboard");
-});
-
-app.get("/dashboard", async function (req, res) {
-  res.render("dashboard");
-});
-
-app.post("/dashboard", async function (req, res){
- 
 });
 
 app.get("/login", async function(req, res){
@@ -904,6 +897,14 @@ app.post("/login", async function (req, res) {
     loginConfirm = false;
     res.render("login", {loginConfirmation: loginConfirm});
   }
+});
+
+app.get("/dashboard", async function (req, res) {
+  res.render("dashboard");
+});
+
+app.post("/dashboard", async function (req, res){
+ res.render("dasboard", {outputDisplay: outputConfirm})
 });
 
 app.listen(5000, function()
