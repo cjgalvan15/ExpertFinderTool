@@ -33,8 +33,24 @@
         <div id="header-container">
             <h2>Expert Connect: The Expert Finder Tool</h2>
             <div>
-                <button class="myProfile">My Profile</button>
-                <button class="logout">Logout</button>
+                <table>
+                    <tr>
+                      <td> 
+                        <form action="/" method="get">
+                        <button class="myProfile" type="submit">My Profile</button>
+                        </form>
+                    </td>
+                      <td>
+                        <form action="/" method="get">
+                            <button class="logout" type="submit">Logout</button>
+                        </form>
+                      </td>
+                    </tr>
+                  </table>
+                  
+               
+                
+                
             </div>
         </div>
     </header>
@@ -115,8 +131,9 @@
         </div>
 
         <div id="output-container">
-            <% if (outputDisplay == true) { %>
-                <h2>It is <%= outputDisplay %></h2>
+            <!-- Current Workspace -->
+            <% if (outputDisplay.length > 0) { %>
+                <h1><%= outputDisplay[0].name %></h1>
             <% } %>
         </div>
 

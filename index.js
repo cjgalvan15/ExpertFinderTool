@@ -302,7 +302,7 @@ function arrBsonToReg(arr)//
   var jobExp = [];
   var contInfo = [];
   var _id = "";
-  arrResult = [];
+  var arrResult = [];
 
   for (let i = 0; i < arr.length; i++) {
     // Your code goes here
@@ -320,9 +320,11 @@ function arrBsonToReg(arr)//
 
 async function searchExpert(val, period, arr) 
 {
-  result = [];
+
+  var result = [];
   var listOfExperts = [];
   var res;
+
 
   if(arr == false)
   {
@@ -365,6 +367,7 @@ async function searchExpert(val, period, arr)
     else
     {
       listOfExperts = arrBsonToReg(res);
+
       return listOfExperts;
     }
   }
@@ -418,6 +421,11 @@ async function searchExpert(val, period, arr)
   }
 
 }
+// searchExpert(val, period, arr) 
+console.log("----------------");
+// var out = searchExpert("Aljohn Torre", 0, []).then((result)=> {return result;}).catch((error)=>{console.log(error)});
+// console.log(out);
+console.log("----------------");
 
 const handleSearches = async function(arr) 
 {
@@ -425,7 +433,8 @@ const handleSearches = async function(arr)
   var arrFilter = [];
   var tempId = 0;
   var temp;
-  for (let i = 0; i < arr.length; i++) 
+  for 
+  (let i = 0; i < arr.length; i++) 
   {
     try
     {
@@ -436,6 +445,7 @@ const handleSearches = async function(arr)
         arrFilter = (await searchedResults.then((result) => 
         {
           return result;
+
         }));
       }
       else
@@ -462,9 +472,13 @@ const handleSearches = async function(arr)
 
 }
 
+
+// searchExpert(val, period, arr) 
+
 // Find based on the Name-value
 async function findBasedName(val, period, id) // "Robert Ampatuan"
 {
+
   if(period ==0)
   {
     try
@@ -472,6 +486,7 @@ async function findBasedName(val, period, id) // "Robert Ampatuan"
       const data = await CICSExperts.find({"name":val});//  
       if(data != null)
       {
+
         // return 
         if (typeof window === "object") // web app 
             {
@@ -480,8 +495,8 @@ async function findBasedName(val, period, id) // "Robert Ampatuan"
             } 
             else 
             {
-              // console.log(data);
               return data;
+
             }
       }
       else
@@ -906,7 +921,20 @@ app.get("/dashboard", async function (req, res) {
 });
 
 app.post("/dashboard", async function (req, res){
- res.render("dashboard", {outputDisplay: outputConfirm})
+
+  // You have selected: BS Information Technology / BS Accountancy 
+  var searchList = req.body.valueList;
+
+  // BS Information Technology / BS Accountancy
+  searchList = searchList.replace("You have selected: ", "");
+
+  // ['BS Information Technology', 'BS Accountancy'] 
+  var arrList = searchList.split(" / ");
+
+  // [expert1, expert2, expert3]
+  var expLists = await handleSearches(arrList);
+  
+ res.render("dashboard", {outputDisplay: expLists})
 });
 
 app.listen(5000, function()
