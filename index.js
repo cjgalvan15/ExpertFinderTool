@@ -34,6 +34,7 @@ const educObjSchema = new mongoose.Schema({
     email: String,
     phone: String,
     department: String
+
    })
    
    const cicsExpertsSchema = new mongoose.Schema({
@@ -43,7 +44,9 @@ const educObjSchema = new mongoose.Schema({
     numLogs: Number,
     education: [educObjSchema],
     jobExperience : [jobExpObjSchema],
-    contactInformation: [contInfoObjSchema]
+    contactInformation: [contInfoObjSchema],
+    highlights: []
+
    })
    
    const CICSExperts = mongoose.model("CICSExpert", cicsExpertsSchema);
@@ -189,14 +192,32 @@ class ContactInformation {
   }
 }
 
+class Highlights {
+  constructor(arrHighlights) {
+    this._arrHighlights = arrHighlights;
+  }
+
+  // Getter for arrHighlights attribute
+  get arrHighlights() {
+    return this._arrHighlights;
+  }
+
+  // Setter for arrHighlights attribute
+  set arrHighlights(arrHighlights) {
+    this._arrHighlights = arrHighlights;
+  }
+}
+
+
 
 class Expert {
-  constructor(name, id, education, jobExperience, contactInformation) {
+  constructor(name, id, education, jobExperience, contactInformation, highlights) {
     this._name = name;
     this._id = id;
     this._education = education;
     this._jobExperience = jobExperience;
     this._contactInformation = contactInformation;
+    this._highlights = highlights;
   }
 
   // Getters
@@ -219,6 +240,11 @@ class Expert {
   get contactInformation() {
     return this._contactInformation;
   }
+ 
+  get highlights()
+  {
+    return this._highlights;
+  }
 
   // Setters
   set name(name) {
@@ -239,6 +265,11 @@ class Expert {
 
   set contactInformation(contactInformation) {
     this._contactInformation = contactInformation;
+  }
+   
+  set highlights(highlights)
+  {
+    this._highlights = highlights;
   }
 }
 
@@ -281,16 +312,34 @@ function setContactInformation(arr)
 {
   var arrResult= [];
 
-  var email = "", cellphoneNumber="", collDepartment = "";
   for (let i = 0; i < arr.length; i++) {
     // Your code goes here
-    var email = arr[i].email;
-    var cellphoneNumber = arr[i].cellphoneNumber;
-    var collDepartment = arr[i].collegeDepartment;
+    const email = arr[i].email;
+    const cellphoneNumber = arr[i]['cellphoneNumber'];
+    const collDepartment = arr[i].collegeDepartment;
 
     var contactObj = new ContactInformation(email, cellphoneNumber, collDepartment);
+
     arrResult.push(contactObj);
   }
+
+  return arrResult;
+}
+
+function getfCellphoneNumber(arr)
+{
+  return arr.cellphoneNumber;
+}
+
+function setHighlights(arr)
+{
+  var arrResult = [];
+  // Your code goes here
+  console.log("-------------Highlights----------------");
+  console.log(arr);
+  console.log("-------------Highlights----------------");
+  var highlightsObj = new Highlights(arr);
+  arrResult.push(highlightsObj);
 
   return arrResult;
 }
@@ -301,6 +350,7 @@ function arrBsonToReg(arr)//
   var educ = [];
   var jobExp = [];
   var contInfo = [];
+  var highlight = [];
   var _id = "";
   var arrResult = [];
 
@@ -311,11 +361,11 @@ function arrBsonToReg(arr)//
     educ = setEducation(arr[i].education);
     jobExp = setJobExperience(arr[i].jobExperience);
     contInfo = setContactInformation(arr[i].contactInformation);
-    arrResult.push(new Expert(name,_id, educ, jobExp, contInfo));
+    highlight = setHighlights(arr[i].highlights);
+    arrResult.push(new Expert(name,_id, educ, jobExp, contInfo, highlight));
     
   }
   return arrResult;
-  
 }
 
 async function searchExpert(val, period, arr) 
@@ -444,6 +494,9 @@ const handleSearches = async function(arr)
         var searchedResults = searchExpert(temp, i, arrFilter); // all results in DB
         arrFilter = (await searchedResults.then((result) => 
         {
+          console.log("------------------------------------");
+          console.log(result[0]);
+          console.log("------------------------------------");
           return result;
 
         }));
@@ -878,7 +931,39 @@ async function verifyLogin(username, password) {
   }
 }
 
-//--------------------------------------------------------------
+//------------------------Format Experts to be displayed-----------------------
+
+
+function setExperts(expertLists)
+{
+  var result = [];
+
+  for(let i=0;i<expertLists.length;i++){
+    // Get name of expert
+    var name = expertLists[i].name;
+    // Get highlights of expert
+    var highlights = expertLists[i].highlights[0]._arrHighlights;
+    // Combine highlights and name
+    var combInfo = combineNameHighlights(name, highlights);
+    // Add combInfo as expert in result
+    result.push(combInfo);
+  }
+  return result;
+}
+
+function combineNameHighlights(name, highlights)
+{
+  var result=[];
+  // Add name
+  result.push(name);
+  for(let i =0; i<highlights.length; i++){
+    // Add each highlight
+    result.push(highlights[i]);
+  }
+  return result;
+}
+
+//--------------------------------Routes-------------------------------
 var loginConfirm = true;
 var expertResults = [];
 var outputConfirm = true;
@@ -886,10 +971,8 @@ var outputConfirm = true;
 // Get & Post Requests
 app.get("/", function(req, res)
 {
-  // import path from 'path';
   const filePath = path.join(__dirname, '/public/Home','home.html');
 	res.sendFile(filePath);
-  // res.render("dashboard");
 });
 
 app.get("/login", async function(req, res){
@@ -933,11 +1016,29 @@ app.post("/dashboard", async function (req, res){
 
   // [expert1, expert2, expert3]
   var expLists = await handleSearches(arrList);
-  
- res.render("dashboard", {outputDisplay: expLists})
+
+  // Format each expert in name, highlights1-5
+  var formatted = setExperts(expLists);
+  var length = formatted.length;
+
+  res.render("dashboard", {outputDisplay: formatted})
 });
 
-app.listen(5000, function()
+app.get("/profile", async function(req, res){
+  res.render("profile");
+});
+
+app.post("/profile", async function(req, res){
+  // access the following:
+  console.log("Welcome to Profile Page :3");
+  // C:\Users\windows\Desktop\CJ\Expert-finder\ExpertFinderTool\index.js
+
+
+  res.render("profile");
+});
+
+
+app.listen(4000, function()
 {
-	console.log("Server is running on port 5000.");
+	console.log("Server is running on port 4000.");
 });

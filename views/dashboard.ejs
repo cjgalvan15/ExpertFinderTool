@@ -6,29 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <!-- External stylesheets -->
     <link rel="stylesheet" type="text/css" href="../Dashboard2/dashboard_style.css">
-    <link rel="icon" type="image/png"
-        href="https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/New_Era_University.svg/1200px-New_Era_University.svg.png">
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/New_Era_University.svg/1200px-New_Era_University.svg.png">
+    <!-- Internal styles -->
     <style>
         .readonly-input {
             display: inline-block;
-            resize: none;
-            margin-left: 20px;
-            margin-left: 10px;
+            resize: none; 
+            margin-left: 10px; /* Changed from 20px */
             border: none;
             outline: none;
             background-color: transparent;
             font-size: inherit;
             color: inherit;
-            padding: 0;
-            width: 800px
+            padding: 0;   
+            width: 800px;
         }
     </style>
 </head>
 
 <body>
-
     <!-- Header Section -->
     <header>
         <div id="header-container">
@@ -36,8 +35,8 @@
             <div>
                 <table>
                     <tr>
-                        <td>
-                            <form action="/" method="get">
+                        <td> 
+                            <form action="/profile" method="get">
                                 <button class="myProfile" type="submit">My Profile</button>
                             </form>
                         </td>
@@ -48,10 +47,6 @@
                         </td>
                     </tr>
                 </table>
-
-
-
-
             </div>
         </div>
     </header>
@@ -64,114 +59,111 @@
         <button class="search-button" id="search-button" onclick="inputSearchButton()">Search</button>
     </nav>
 
-    <!-- Sidebar Section -->
-    <aside>
-        <div>
-            <img src="../Materials/NewEra_Logo.png" alt="NewEra Logo" width="150">
-            <h2>NEW ERA UNIVERSITY</h2>
-            <hr>
-            <p>Dashboard</p>
-            <hr>
-            <p id="sort-category">Sort by category:</p>
+<!-- Sidebar Section -->
+<aside>
+    <div>
+        <!-- New Era University Logo and Title -->
+        <img src="../Materials/NewEra_Logo.png" alt="NewEra Logo" width="150">
+        <h2>NEW ERA UNIVERSITY</h2>
+        <hr>
 
-            <!-- Course -->
-            <button id="course-button" onclick="toggleCourseButton()" style="font-size: 1rem;"><b>Courses</b></button>
-            <div id="course-container">
-                <label class="courseOption"><input type="checkbox" value="BS Computer Science">BS ComSci</label>
-                <label class="courseOption"><input type="checkbox" value="BS Information Technology">BS IT</label>
-                <label class="courseOption"><input type="checkbox" value="BS Accountancy">BS Accountancy</label>
-                <label class="courseOption"><input type="checkbox" value="BS Medical Technology">BS Med Tech</label>
-                <label class="courseOption"><input type="checkbox" value="BS Psychology">BS Pschology</label>
-                <label class="courseOption"><input type="checkbox" value="BS Biology">BS Biology</label>
-                <label class="courseOption"><input type="checkbox" value="BS Civil Engineer">BS Civil Engineer</label>
-            </div>
+        <!-- Dashboard Header -->
+        <p>Dashboard</p>
+        <hr>
 
-            <!-- Level of Education -->
-            <button id="levelEduc-button" onclick="toggleLevelEducButton()" style="font-size: 1rem;"><b>Level of
-                    Education</b></button>
-            <div id="levelEduc-container">
-                <label class="levelEducOption"><input type="checkbox" value="Bachelor's Degree">Bachelor's
-                    Degree</label>
-                <label class="levelEducOption"><input type="checkbox" value="Master's Degree">Master's Degree</label>
-                <label class="levelEducOption"><input type="checkbox" value="Doctoral Degree">Doctoral Degree</label>
-            </div>
+        <!-- Filter by Category -->
+        <p id="sort-category">Sort by category:</p>
 
-            <!-- Profession -->
-            <button id="profession-button" onclick="toggleProfessionButton()"
-                style="font-size: 1rem;"><b>Profession</b></button>
-            <div id="profession-container">
-                <label class="professionOption"><input type="checkbox" value="Software Engineer">Software
-                    Engineer</label>
-                <label class="professionOption"><input type="checkbox" value="IT Specialist">IT Specialist</label>
-                <label class="professionOption"><input type="checkbox" value="SOC Analyst">SOC Analyst</label>
-                <label class="professionOption"><input type="checkbox" value="Nurse">Nurse</label>
-                <label class="professionOption"><input type="checkbox" value="Medical Officer">Medical Officer</label>
-                <label class="professionOption"><input type="checkbox" value="Medical Specialist">Medical
-                    Specialist</label>
-            </div>
-
-            <!-- School -->
-            <button id="school-button" onclick="toggleSchoolButton()" style="font-size: 1rem;"><b>School</b></button>
-            <div id="school-container">
-                <label class="schoolOption"><input type="checkbox" value="New Era University">New Era University</label>
-                <label class="schoolOption"><input type="checkbox" value="Lyceum of the Philippines">Lyceum of the
-                    Philippines</label>
-                <label class="schoolOption"><input type="checkbox" value="Adamson University">Adamson University</label>
-                <label class="schoolOption"><input type="checkbox" value="Ateneo de Manila">Ateneo de Manila</label>
-                <label class="schoolOption"><input type="checkbox" value="Philippine Normal University">Philippine
-                    Normal University</label>
-            </div>
+        <!-- Filter by Course -->
+        <button id="course-button" onclick="toggleCourseButton()" style="font-size: 1rem;"><b>Courses</b></button>
+        <div id="course-container">
+            <label class="courseOption"><input type="checkbox" value="BS Computer Science">BS ComSci</label>
+            <label class="courseOption"><input type="checkbox" value="BS Information Technology">BS IT</label>
+            <label class="courseOption"><input type="checkbox" value="BS Accountancy">BS Accountancy</label>
+            <label class="courseOption"><input type="checkbox" value="BS Medical Technology">BS Med Tech</label>
+            <label class="courseOption"><input type="checkbox" value="BS Psychology">BS Pschology</label>
+            <label class="courseOption"><input type="checkbox" value="BS Biology">BS Biology</label>
+            <label class="courseOption"><input type="checkbox" value="BS Civil Engineer">BS Civil Engineer</label>
         </div>
 
-    </aside>
+        <!-- Filter by Level of Education -->
+        <button id="levelEduc-button" onclick="toggleLevelEducButton()" style="font-size: 1rem;"><b>Level of
+                Education</b></button>
+        <div id="levelEduc-container">
+            <label class="levelEducOption"><input type="checkbox" value="Bachelor's Degree">Bachelor's Degree</label>
+            <label class="levelEducOption"><input type="checkbox" value="Master's Degree">Master's Degree</label>
+            <label class="levelEducOption"><input type="checkbox" value="Doctoral Degree">Doctoral Degree</label>
+        </div>
+
+        <!-- Filter by Profession -->
+        <button id="profession-button" onclick="toggleProfessionButton()" style="font-size: 1rem;"><b>Profession</b></button>
+        <div id="profession-container">
+            <label class="professionOption"><input type="checkbox" value="Software Engineer">Software Engineer</label>
+            <label class="professionOption"><input type="checkbox" value="IT Specialist">IT Specialist</label>
+            <label class="professionOption"><input type="checkbox" value="SOC Analyst">SOC Analyst</label>
+            <label class="professionOption"><input type="checkbox" value="Nurse">Nurse</label>
+            <label class="professionOption"><input type="checkbox" value="Medical Officer">Medical Officer</label>
+            <label class="professionOption"><input type="checkbox" value="Medical Specialist">Medical Specialist</label>
+        </div>
+
+        <!-- School -->
+        <button id="school-button" onclick="toggleSchoolButton()" style="font-size: 1rem;"><b>School</b></button>
+        <div id="school-container">
+             <label class="schoolOption"><input type="checkbox" value="New Era University">New Era University</label>
+            <label class="schoolOption"><input type="checkbox" value="Lyceum of the Philippines">Lyceum of the Philippines</label>
+            <label class="schoolOption"><input type="checkbox" value="Adamson University">Adamson University</label>
+            <label class="schoolOption"><input type="checkbox" value="Ateneo de Manila">Ateneo de Manila</label>
+            <label class="schoolOption"><input type="checkbox" value="Philippine Normal University">Philippine Normal University</label>
+        </div>
+</div>
+
+</aside>
 
     <!-- Main Content Section -->
     <section>
         <div id="content-container">
             <button class="remove-button" id="remove-button" onclick="removeItemsButton()">Delete</button>
-            <form id="output-form" class="" action="/dashboard" method="post">
-                <textarea class="readonly-input" name="valueList" id="valueList" rows="10" cols="50"
-                    readonly></textarea>
+            <form id = "output-form" class="" action="/dashboard" method="post">
+                <textarea class="readonly-input" name="valueList" id="valueList" rows="10" cols="50" readonly></textarea>
                 <button class="submit-output" name="submit-button" type="submit">Submit</button>
-
-            </form>
+            </form>         
         </div>
-
-        <div id="output-container">
-            <!-- Current Workspace -->
-            <% if (outputDisplay.length> 0) { %>
-                <h1>
-                    <%= outputDisplay[0].name %>
-                </h1>
+        
+        <div id="output-container" >
+            <% for (let i = 0; i < outputDisplay.length; i++) { %>
+                <% for (let j = 0; j < outputDisplay[i].length; j++) { %>
+                  <p> <%= outputDisplay[i][j]%> </p>
                 <% } %>
+              <% } %>
         </div>
 
+        
     </section>
 
     <!-- Script -->
     <script>
-
+    
         function toggleCourseButton() {
-            var courseContainer = document.getElementById("course-container");
-            courseContainer.classList.toggle("show");
+        var courseContainer = document.getElementById("course-container");
+        courseContainer.classList.toggle("show");
         }
 
         // Level of Education Container
         function toggleLevelEducButton() {
-            var levelEducContainer = document.getElementById("levelEduc-container");
-            levelEducContainer.classList.toggle("show");
+        var levelEducContainer = document.getElementById("levelEduc-container");
+        levelEducContainer.classList.toggle("show");
         }
 
         // Profession Container
         function toggleProfessionButton() {
-            var professionContainer = document.getElementById("profession-container");
-            professionContainer.classList.toggle("show");
+        var professionContainer = document.getElementById("profession-container");
+        professionContainer.classList.toggle("show");
         }
 
         // School Container
         function toggleSchoolButton() {
-            var schoolContainer = document.getElementById("school-container");
-            schoolContainer.classList.toggle("show");
+        var schoolContainer = document.getElementById("school-container");
+        schoolContainer.classList.toggle("show");
         }
 
         // Section Container
@@ -186,14 +178,14 @@
 
         function showBoxContainer() {
             if ([...checkboxes].some(checkbox => checkbox.checked)) {
-                contentContainer.classList.add("show");
+                contentContainer.classList.add("show"); 
                 document.getElementById("remove-button").style.display = "block"; //Show remove button 
-
+                
                 if (this.checked == true) {
                     //Add value to array when checked
                     listArray.push(this.value);
                     valueList.value = text + listArray.join(' / ');
-
+                    
                 } else {
                     //Remove value from array when unchecked
                     listArray = listArray.filter(e => e !== this.value);
@@ -220,14 +212,14 @@
             // Get all the checkbox elements
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-            // Loop through all the checkbox elements and uncheck them.
+            // Loop through all the checkbox elements and uncheck them
             checkboxes.forEach(function (checkbox) {
                 checkbox.checked = false;
                 contentContainer.classList.remove("show");
             });
 
         });
-
+    
     </script>
     <script src="../index.js" type="module"></script>
 </body>
