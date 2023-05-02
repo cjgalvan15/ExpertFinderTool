@@ -118,7 +118,7 @@ nav {
 }
 
 nav input[type="text"] {
-    width:75%;
+    width: 75%;
     padding: 10px;
     border: none;
     border-radius: 25px;
@@ -143,9 +143,9 @@ nav .search-button {
     width: 80px;
     height: 30px;
     border-radius: 25px;
-    cursor: pointer;    
+    cursor: pointer;
     background-color: #f1f1f1;
-    color:rgb(102, 102, 102);
+    color: rgb(102, 102, 102);
     font-size: 10px;
     font-weight: bold;
     box-shadow: 0 0 5px gray;
@@ -484,16 +484,24 @@ section #content-container.show {
 
 /* Output Container */
 #output-container {
+    display: none;
     background-color: rgba(249, 249, 249, 0.8);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 10px;
     border: 1px solid #ddd;
-    max-height: 500px;
+    max-height: 555px;
     border-radius: 10px;
     margin: 50px 70px;
     overflow: auto;
+    transition: max-height 0.5s ease;
 }
-  
+
+#output-container.show {
+    display: block;
+    max-height: 500px;
+    transition: max-height 1s ease;
+}
+
 
 /* Remove and Submit Button */
 section .remove-button {
@@ -549,4 +557,3 @@ section p {
     margin-right: 20px;
     margin-left: 20px;
 }
-
