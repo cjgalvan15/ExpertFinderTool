@@ -1025,16 +1025,13 @@ app.post("/dashboard", async function (req, res){
 });
 
 app.get("/profile", async function(req, res){
+  console.log("Welcome to Profile Page :3");
   res.render("profile");
 });
 
 app.post("/profile", async function(req, res){
-  // access the following:
-  console.log("Welcome to Profile Page :3");
-  // C:\Users\windows\Desktop\CJ\Expert-finder\ExpertFinderTool\index.js
-
-
-  res.render("profile");
+  
+  //res.render("profile");
 });
 
 

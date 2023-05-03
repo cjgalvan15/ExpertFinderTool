@@ -12,13 +12,13 @@
 </head>
 
 <body>
-    <form action="/profile" method="POST" enctype="multipart/form-data">
+  <form id="profile-fillup" class="" action="/profile" method="post" enctype="multipart/form-data" onsubmit="event.preventDefault()">
         <div class="educInfo-cont">
 
             <!-- Profile Image Section -->
             <div class="circle" id="circle">
               <div class="circle-text" id="circle-text"><i class="fa-solid fa-plus"></i></div>
-              <input name="file-input" type="file" id="file-input" accept="image/*" onchange="handleFileSelect(event)">
+              <input name="file-input" type="file" id="file-input" accept="image/*" onchange="handleFileSelect(event)" disabled>
               <div class="remove" id="remove">x</div>
             </div>
         
@@ -27,11 +27,11 @@
             <div class="edit-btn-container"><button name="edit-btn" class="edit-btn" onclick="editUserInput()">Edit</button></div>
             <div class="inputs-profile">
               <label>First Name: </label>
-              <input name="firstName" id="firstName" type="text" />
+              <input name="firstName" id="firstName" type="text" disabled/>
               <label>Middle Name: </label>
-              <input name="middleName" id="middleName" type="text" />
+              <input name="middleName" id="middleName" type="text" disabled/>
               <label>Lastname: </label>
-              <input name="lastName" id="lastName" type="text" />
+              <input name="lastName" id="lastName" type="text" disabled/>
             </div>
         
             <!-- Education Information Section -->
@@ -42,30 +42,30 @@
               <div class="form">
                 <label for="degree-1">Degree:</label>
                 <div class="form-radio">
-                  <input type="radio" name="degree-1" id="bachelor-1" value="bachelor" checked>
+                  <input class="radio-group" type="radio" name="degree-1" id="bachelor-1" value="bachelor" checked disabled>
                   <label for="bachelor-1">Bachelor's</label>
                 </div>
                 <div class="form-radio">
-                  <input type="radio" name="degree-1" id="masteral-1" value="masteral">
+                  <input class="radio-group" type="radio" name="degree-1" id="masteral-1" value="masteral" disabled>
                   <label for="masteral-1">Masteral's</label>
                 </div>
                 <div class="form-radio">
-                  <input type="radio" name="degree-1" id="doctoral-1" value="doctoral">
+                  <input class="radio-group" type="radio" name="degree-1" id="doctoral-1" value="doctoral" disabled>
                   <label for="doctoral-1">Doctoral's</label>
                 </div>
                 <br>
                 <br>
                 <label for="program-1">Program 1:</label>
-                <input type="text" name="program-1" id="program-1">
+                <input type="text" name="program-1" id="program-1" disabled>
                 <label for="studied-in-1">Studied in:</label>
-                <input type="text" name="studied-in-1" id="studied-in-1">
+                <input type="text" name="studied-in-1" id="studied-in-1" disabled>
               </div>
         
             </div>
         
         
             <!-- Add Education Information Form Button -->
-            <button id="add-form">
+            <button id="add-form" style="display:none">
               <i style="font-size: 20px; padding-top: 5px; padding-bottom: 5px;" class="fa-plus"></i>
             </button>
         
@@ -78,13 +78,13 @@
               <div id="experience-forms" class="div-ex">
                 <div class="div-ex experience-form">
                   <label for="job-title-1">Job Title 1:</label>
-                  <input type="text" name="job-title-1" id="job-title-1">
+                  <input type="text" name="job-title-1" id="job-title-1" disabled>
                   <label for="work-place-1">Work place:</label>
-                  <input type="text" name="work-place-1" id="work-place-1">
+                  <input type="text" name="work-place-1" id="work-place-1" disabled>
                 </div>
               </div>
             </div>
-            <button id="experience-btn"><i style="font-size: 20px; padding-top: 5px; padding-bottom: 5px;"
+            <button id="experience-btn" style="display:none"><i style="font-size: 20px; padding-top: 5px; padding-bottom: 5px;"
                 class="fa-plus"></i></button>
         
             <!-- Contact Information -->
@@ -92,23 +92,250 @@
             <div id="contactInfo-forms" class="div-contactInfo">
               <div class="contactInfo contactInfo-form">
                 <label for="email-1">Email:</label>
-                <input type="text" name="email-1" id="email-1">
+                <input type="text" name="email-1" id="email-1" disabled>
                 <label for="cp-1">Cellphone Number:</label>
-                <input type="text" name="cp-1" id="cp-1">
+                <input type="text" name="cp-1" id="cp-1" disabled>
                 <label for="college-dept-1">College Department:</label>
-                <input type="text" name="college-dept-1" id="college-dept-1">
+                <input type="text" name="college-dept-1" id="college-dept-1" disabled>
               </div>
             </div>
         
             <!-- Submit Buttons -->
             <div class="submit-container-btn">
-              <button id="cancel-profile-btn" onclick="cancelUserInput()">Cancel</button>
-              <button type="submit" id="save-profile-btn" onClick="saveUserInput()">Save</button>
+              <button id="cancel-profile-btn" onclick="cancelUserInput()" style="display:none">Cancel</button>
+              <button type="submit" id="save-profile-btn" onClick="saveUserInput()" style="display:none">Save</button>
             </div>
           </div>
-    </form>
+  </form>
+    
   <!-- <div class="container"> -->
 
+  <!-- Script-->
+  <script> //Page functions script
+
+    // educ info
+    const addFormButton = document.getElementById('add-form');
+    const formsContainer = document.getElementById('educInfo-forms');
+    let formCount = 1;
+
+    addFormButton.addEventListener('click', () => {
+      formCount++;
+
+      const newForm = document.createElement('div');
+      newForm.classList.add('form');
+      newForm.innerHTML = `
+    <label for="degree-${formCount}">Degree:</label>
+    <div class="form-radio">
+      <input class="radio-group" type="radio" name="degree-${formCount}" id="bachelor-${formCount}" value="bachelor" checked>
+      <label for="bachelor-${formCount}">Bachelor's</label>
+    </div>
+    <div class="form-radio">
+      <input class="radio-group" type="radio" name="degree-${formCount}" id="masteral-${formCount}" value="masteral">
+      <labelfor="masteral-${formCount}">Masteral's</label>
+    </div>
+    <div class="form-radio">
+      <input class="radio-group" type="radio" name="degree-${formCount}" id="doctoral-${formCount}" value="doctoral">
+      <label for="doctoral-${formCount}">Doctoral's</label>
+    </div>
+    <br>
+    <br>
+    <label for="program-${formCount}">Program ${formCount}: </label>
+    <input type="text" name="program-${formCount}" id="program-${formCount}">
+    <label for="studied-in-${formCount}">Studied in:</label>
+    <input type="text" name="studied-in-${formCount}" id="studied-in-${formCount}">
+    `;
+
+      if (formCount > 4) {
+        document.getElementById("add-form").style.display = "none"; //Hide add button 
+      }
+
+      formsContainer.appendChild(newForm);
+    });
+
+    // job experience
+    const addFormButton_ex = document.getElementById('experience-btn');
+    const formsContainer1 = document.getElementById('experience-forms');
+    let formCount1 = 1;
+
+    addFormButton_ex.addEventListener('click', () => {
+      formCount1++;
+      const newForm1 = document.createElement('contactInfo-form');
+      newForm1.classList.add('experience-form');
+      newForm1.innerHTML = `
+            <label for="job-title-${formCount1}">Job Title ${formCount1}:</label>
+            <input type="text" name="job-title-${formCount1}" id="job-title-${formCount1}">
+            <label for="work-place-${formCount}">Work place:</label>
+            <input type="text" name="work-place-${formCount1}" id="work-place-${formCount1}">
+            `;
+
+      if (formCount1 > 4) {
+        document.getElementById("experience-btn").style.display = "none"; //Hide add button 
+      }
+
+      formsContainer1.appendChild(newForm1);
+    });
+
+    /*Add image */
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        document.getElementById('circle').style.backgroundImage = `url(${event.target.result})`;
+        document.getElementById('circle').classList.add('selected');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    document.getElementById('circle').addEventListener('click', function (event) {
+      if (event.target.id === 'remove') {
+        document.getElementById('circle').style.backgroundImage = '';
+        document.getElementById('circle').classList.remove('selected');
+      } else {
+        document.getElementById('file-input').click();
+      }
+    });
+
+    //User Input Functions
+    function saveUserInput() { //Save button function
+
+      //Prevents save function if a text field is empty
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type === "text" && inputs[i].value === "") {
+          alert("Please fill in all text fields.");
+          return; // stop function execution if any text field is empty
+        }
+      }
+
+      for (var i = 0; i < inputs.length; i++) { //make text fields inaccessible
+        inputs[i].disabled = true;
+      }
+
+      const radioGroup = document.querySelectorAll(".radio-group");
+      radioGroup.forEach((radio) => { //make all radio type inputs inaccessible
+        radio.disabled = true;
+      });
+
+      //Saving input for name
+      let firstName = document.getElementById("firstName").value;
+      let middleName = document.getElementById("middleName").value;
+      let lastName = document.getElementById("lastName").value;
+      var name = firstName + " " + middleName + " " + lastName;
+      console.log(name);
+
+      //Saving input for education
+      var degreeOption = ["null", "degree-1", "degree-2", "degree-3", "degree-4", "degree-5"];
+      for (let i = 1; i <= formCount; i++) {//Loop that saves input for each education information section
+        saveEducation(document.querySelector('input[name="'+ degreeOption[i] + '"]:checked').value, document.getElementById('program-' + i).value, document.getElementById("studied-in-" + i).value);
+      }
+
+      //Saving input for job 
+      for (let i = 1; i <= formCount1; i++) {//Loop that saves input for each job experience section
+        saveJob(document.getElementById('job-title-'+i).value, document.getElementById('work-place-'+i).value);
+      }
+      
+      //Saving input for contact
+      let email = document.getElementById("email-1").value;
+      let cellphoneNumber = document.getElementById("cp-1").value;
+      let collegeDepartment = document.getElementById("college-dept-1").value;
+      var contactInformation = [email, cellphoneNumber, collegeDepartment];
+      console.log(contactInformation);
+
+      document.getElementById("cancel-profile-btn").style.display = "none"; //Hide cancel button 
+      document.getElementById("save-profile-btn").style.display = "none"; //Hide save button 
+      document.getElementById("add-form").style.display = "none"; //hide add educ button
+      document.getElementById("experience-btn").style.display = "none"; //hide add job button
+      document.getElementById("file-input").disabled = true; //disable add profile photo
+      //document.getElementById("remove").disabled = true; //disable profile photo remove div
+    }
+
+    function cancelUserInput() {
+      //Removes inserted profile picture
+      document.getElementById('circle').style.backgroundImage = '';
+      document.getElementById('circle').classList.remove('selected');
+
+      //Sets the text fields to null
+      document.getElementById("firstName").value = "";
+      document.getElementById("middleName").value = "";
+      document.getElementById("lastName").value = "";
+
+      for (let i = 1; i <= 5; i++) {//Sets all possible program fields to null
+        let field = document.getElementById('program-' + i);
+        if (field) { // check if the field exists
+          field.value = null;
+        }
+      }
+
+      for (let i = 1; i <= 5; i++) {//Sets all possible studied-in fields to null
+        let field = document.getElementById('studied-in-' + i);
+        if (field) { // check if the field exists
+          field.value = null;
+        }
+      }
+
+      for (let i = 1; i <= 5; i++) {//Sets all possible job-title fields to null
+        let field = document.getElementById('job-title-' + i);
+        if (field) { // check if the field exists
+          field.value = null;
+        }
+      }
+
+      for (let i = 1; i <= 5; i++) {//Sets all possible work-place fields to null
+        let field = document.getElementById('work-place-' + i);
+        if (field) { // check if the field exists
+          field.value = null;
+        }
+      }
+
+      document.getElementById("email-1").value = "";
+      document.getElementById("cp-1").value = "";
+      document.getElementById("college-dept-1").value = "";
+
+
+      // redirect to Expert Dashboard
+      // window.location.href = 'http://localhost:5500/public/Dashboard2/expertDashboard.html';
+
+    }
+
+    function editUserInput(){
+      document.getElementById("cancel-profile-btn").style.display = "block"; //show cancel button 
+      document.getElementById("save-profile-btn").style.display = "block"; //show save button
+      document.getElementById("add-form").style.display = "block"; //show add educ button
+      document.getElementById("experience-btn").style.display = "block"; //show add job button
+      
+      document.getElementById('file-input').removeAttribute('disabled'); //enable add profile pic
+      //document.getElementById('remove').removeAttribute('disabled'); //enable profile pic remove div
+
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) { //make text fields accessible
+        inputs[i].disabled = false;
+      }
+
+      const radioGroup = document.querySelectorAll(".radio-group");
+      radioGroup.forEach((radio) => { //make all radio type inputs accessible
+        radio.removeAttribute('disabled');
+      });
+    }
+
+    //Function for saving input for education
+    function saveEducation(degree, program, studiedIn) {
+      this.degree = degree;
+      this.program = program;
+      this.studiedIn = studiedIn;
+
+      var education = [degree, program, studiedIn];
+      console.log(education);
+    }
+
+    //Function for saving input for job
+    function saveJob(jobTitle, workPlace) {
+      this.jobTitle = jobTitle;
+      this.workPlace = workPlace;
+
+      var jobExperience = [jobTitle, workPlace];
+      console.log(jobExperience);
+    }
+  </script>
   <script src="/index.js"></script>
 
 </body>
