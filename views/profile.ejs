@@ -250,51 +250,7 @@
     }
 
     function cancelUserInput() {
-      //Removes inserted profile picture
-      document.getElementById('circle').style.backgroundImage = '';
-      document.getElementById('circle').classList.remove('selected');
-
-      //Sets the text fields to null
-      document.getElementById("firstName").value = "";
-      document.getElementById("middleName").value = "";
-      document.getElementById("lastName").value = "";
-
-      for (let i = 1; i <= 5; i++) {//Sets all possible program fields to null
-        let field = document.getElementById('program-' + i);
-        if (field) { // check if the field exists
-          field.value = null;
-        }
-      }
-
-      for (let i = 1; i <= 5; i++) {//Sets all possible studied-in fields to null
-        let field = document.getElementById('studied-in-' + i);
-        if (field) { // check if the field exists
-          field.value = null;
-        }
-      }
-
-      for (let i = 1; i <= 5; i++) {//Sets all possible job-title fields to null
-        let field = document.getElementById('job-title-' + i);
-        if (field) { // check if the field exists
-          field.value = null;
-        }
-      }
-
-      for (let i = 1; i <= 5; i++) {//Sets all possible work-place fields to null
-        let field = document.getElementById('work-place-' + i);
-        if (field) { // check if the field exists
-          field.value = null;
-        }
-      }
-
-      document.getElementById("email-1").value = "";
-      document.getElementById("cp-1").value = "";
-      document.getElementById("college-dept-1").value = "";
-
-
-      // redirect to Expert Dashboard
-      // window.location.href = 'http://localhost:5500/public/Dashboard2/expertDashboard.html';
-
+      
     }
 
     function editUserInput(){

@@ -971,8 +971,7 @@ var outputConfirm = true;
 // Get & Post Requests
 app.get("/", function(req, res)
 {
-  const filePath = path.join(__dirname, '/public/Home','home.html');
-	res.sendFile(filePath);
+  res.render("login", {loginConfirmation: loginConfirm});
 });
 
 app.get("/login", async function(req, res){
@@ -989,7 +988,8 @@ app.post("/login", async function (req, res) {
   console.log(validation);
 
   if (validation) {
-    res.render("dashboard", {outputDisplay: outputConfirm});
+    const filePath = path.join(__dirname, '/public/Dashboard2','dashboard.html');
+    res.sendFile(filePath);
   } else { 
     // if login doesn't match
     loginConfirm = false;
@@ -1020,7 +1020,7 @@ app.post("/dashboard", async function (req, res){
   // Format each expert in name, highlights1-5
   var formatted = setExperts(expLists);
   var length = formatted.length;
-
+  console.log(formatted);
   res.render("dashboard", {outputDisplay: formatted})
 });
 
