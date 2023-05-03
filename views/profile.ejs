@@ -250,7 +250,21 @@
     }
 
     function cancelUserInput() {
-      
+      document.getElementById("cancel-profile-btn").style.display = "none"; //Hide cancel button 
+      document.getElementById("save-profile-btn").style.display = "none"; //Hide save button 
+      document.getElementById("add-form").style.display = "none"; //hide add educ button
+      document.getElementById("experience-btn").style.display = "none"; //hide add job button
+      document.getElementById("file-input").disabled = true; //disable add profile photo
+
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) { //make text fields inaccessible
+        inputs[i].disabled = true;
+      }
+
+      const radioGroup = document.querySelectorAll(".radio-group");
+      radioGroup.forEach((radio) => { //make all radio type inputs inaccessible
+        radio.disabled = true;
+      });
     }
 
     function editUserInput(){
